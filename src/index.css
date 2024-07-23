@@ -1,0 +1,200 @@
+/* @tailwind base; */
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --highlighted: royalblue;
+  --active-unfocused: #d7dce5;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: sans-serif;
+  padding: 0 15px;
+  margin: 0;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  border: 1px solid #ccc;
+  border-top: 0;
+  padding: 10px;
+}
+
+.controls-right {
+  margin-left: auto;
+}
+
+.state {
+  margin: 10px 0;
+  font-family: monospace;
+}
+
+.state-title {
+  color: #999;
+  text-transform: uppercase;
+}
+
+.ContextMenu {
+  outline: 0;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.MenuItem {
+  width: 100%;
+  display: block;
+}
+
+.MenuItem {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  text-align: left;
+  line-height: 1.5;
+  margin: 0;
+  outline: 0;
+}
+
+.MenuItem.open {
+  background: #ddd;
+}
+
+.MenuItem:focus,
+.MenuItem:not([disabled]):active {
+  background: royalblue;
+  color: white;
+}
+
+
+.RootMenu {
+  padding: 6px 14px;
+  border: none;
+  font-size: 16px;
+  background: none;
+  border-radius: 6px;
+  border: 1px solid var(--active-unfocused);
+}
+
+.RootMenu[data-open],
+.RootMenu:hover {
+  background: var(--active-unfocused);
+}
+
+.Menu {
+  background: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 4px;
+  border-radius: 6px;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1);
+  outline: 0;
+}
+
+.MenuItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  text-align: left;
+  line-height: 1.8;
+  min-width: 110px;
+  margin: 0;
+  outline: 0;
+}
+
+.MenuItem:focus {
+  background: var(--highlighted);
+  color: white;
+}
+
+.MenuItem[data-nested][data-open]:not([data-focus-inside]) {
+  background: var(--highlighted);
+  color: white;
+}
+
+.MenuItem[data-focus-inside][data-open] {
+  background: var(--active-unfocused);
+}
+/* a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
