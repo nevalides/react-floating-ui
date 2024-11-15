@@ -42,7 +42,7 @@ const QuillEditor = forwardRef(({
         });
 
         quill.on(Quill.events.SELECTION_CHANGE, (...args) => {
-            getCurrentValue(quill.getText(args[0].index, args[0].length))
+            getCurrentValue(quill.getText(args[0]?.index, args[0]?.length))
             onSelectionChangeRef.current?.(...args);
         });
 

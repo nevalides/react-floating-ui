@@ -5,12 +5,14 @@ import QuillEditor from './editor'
 import { useRef, useState } from "react";
 import "quill/dist/quill.core.css";
 // import { Menu, MenuItem } from "./dropdown-menu";
-import { Menu, MenuItem } from "./custom-context-menu/NestedCustomContextMenu";
+import { Menu, MenuItem } from "./custom-context-menu/NestedMenu/NestedCustomContextMenu";
+import { TextConverterToMarkUp } from "./helper";
 
 const App = () => {
   const [range, setRange] = useState();
   const [lastChange, setLastChange] = useState();
   const [currentValue, setCurrentValue] = useState();
+  const [contentText, setContentText] = useState();
   const [readOnly, setReadOnly] = useState(false);
 
   const quillRef = useRef();
@@ -83,10 +85,11 @@ const App = () => {
           className="ml-auto"
           type="button"
           onClick={() => {
-            alert(quillRef.current?.getLength());
+            console.log(TextConverterToMarkUp(quillRef.current.getContents()));
+            setContentText(TextConverterToMarkUp(quillRef.current.getContents()))
           }}
         >
-          Get Content Length
+          Get Content (Log + html)
         </button>
       </div>
       <div className="my-2 font-mono">
@@ -101,6 +104,11 @@ const App = () => {
         <div className="text-gray-500 uppercase">Selected Text:</div>
         {currentValue ? currentValue : 'Empty'}
       </div>
+      <div className="my-2 font-mono">
+        <div className="text-gray-500 uppercase">Text in HTML:</div>
+        {contentText ? contentText : 'Empty'}
+      </div>
+
       {/* custom context menu */}
       {/* <Menu quillEdit={quillRef}>
         <MenuItem label="Bold" disabled={!currentValue} onClick={handleBold} />
@@ -109,6 +117,7 @@ const App = () => {
         <MenuItem label="Save As..." />
         <MenuItem label="Print" />
       </Menu> */}
+
       {/* dropdown menu with submenu */}
       {/* <Menu label="Edit">
         <MenuItem label="Undo" onClick={() => console.log("Undo")} />
@@ -130,6 +139,7 @@ const App = () => {
           <MenuItem label="Instagram" />
         </Menu>
       </Menu> */}
+
       {/* nested custom context menu */}
       <Menu>
         <Menu label='styling'>
